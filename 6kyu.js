@@ -24,3 +24,28 @@ function createPhoneNumber(numbers) {
   });
   return result;
 }
+
+// Take a Ten Minute Walk
+
+function isValidWalk(walk) {
+  const directions = {
+    n: 0,
+    s: 0,
+    e: 0,
+    w: 0,
+  };
+
+  for (let i = 0; i < walk.length; i++) {
+    if (directions[walk[i]]) {
+      directions[walk[i]] += 1;
+    } else {
+      directions[walk[i]] = 1;
+    }
+  }
+
+  if (walk.length === 10 && directions.n === directions.s && directions.e === directions.w) {
+    return true;
+  } else {
+    return false;
+  }
+}
