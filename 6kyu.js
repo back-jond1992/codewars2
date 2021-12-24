@@ -10,3 +10,17 @@ var countBits = function (n) {
   }
   return counter;
 };
+
+// Create Phone Number
+
+function createPhoneNumber(numbers) {
+  let result = "";
+  numbers.splice(0, 0, "(");
+  numbers.splice(4, 0, ")");
+  numbers.splice(8, 0, "-");
+  numbers.splice(5, 0, " ");
+  numbers.map((number) => {
+    result += number;
+  });
+  return result;
+}
