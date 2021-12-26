@@ -95,3 +95,17 @@ function alphabetPosition(text) {
 
   return result.trim();
 }
+
+// Tribonacci Sequence
+
+function tribonacci(signature, n) {
+  let sumOfLastThreeDigits =
+    signature[signature.length - 3] + signature[signature.length - 2] + signature[signature.length - 1];
+  signature.push(sumOfLastThreeDigits);
+
+  if (signature.length < n) {
+    return tribonacci(signature, n);
+  }
+
+  return n <= 3 ? signature.slice(0, n) : signature;
+}
