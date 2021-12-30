@@ -109,3 +109,15 @@ function tribonacci(signature, n) {
 
   return n <= 3 ? signature.slice(0, n) : signature;
 }
+
+// Your order,please
+
+function order(words) {
+  if (!words) return "";
+
+  const numbers = words
+    .split(" ")
+    .map((word) => word.match(/\d+/))
+    .sort();
+  return numbers.map((word) => word.input).join(" ");
+}
