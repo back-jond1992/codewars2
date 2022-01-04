@@ -121,3 +121,20 @@ function order(words) {
     .sort();
   return numbers.map((word) => word.input).join(" ");
 }
+
+// Decode the Morse code
+
+decodeMorse = function (morseCode) {
+  let decodedString = "";
+  const decodedLetters = morseCode.split(" ").map((word) => {
+    if (word === "") {
+      decodedString += " ";
+    } else {
+      decodedString += MORSE_CODE[word];
+    }
+  });
+  return decodedString
+    .split(" ")
+    .filter((word) => word)
+    .join(" ");
+};
