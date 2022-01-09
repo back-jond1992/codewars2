@@ -15,3 +15,12 @@ function pigIt(str) {
     })
     .join(" ");
 }
+
+// Moving Zeros To The End
+
+var moveZeros = function (arr) {
+  let nonZeros = [];
+  let zeros = [];
+  arr.map((char) => (char === 0 ? zeros.push(char) : nonZeros.push(char)));
+  return nonZeros.concat(zeros);
+};
