@@ -24,3 +24,30 @@ var moveZeros = function (arr) {
   arr.map((char) => (char === 0 ? zeros.push(char) : nonZeros.push(char)));
   return nonZeros.concat(zeros);
 };
+
+// Valid Parentheses
+
+function validParentheses(parens) {
+  const parenthesesArray = parens.split("");
+  let left = 0;
+  let right = 0;
+  let validOrder = true;
+  parenthesesArray.map((paren) => {
+    if (paren === "(") {
+      left += 1;
+    }
+    if (paren === ")") {
+      right += 1;
+    }
+    if (right > left) {
+      validOrder = false;
+    }
+  });
+  return parens === "" ||
+    (left === right &&
+      parenthesesArray[0] === "(" &&
+      parenthesesArray[parenthesesArray.length - 1] === ")" &&
+      validOrder === true)
+    ? true
+    : false;
+}
