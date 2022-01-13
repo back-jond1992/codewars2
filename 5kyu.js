@@ -65,3 +65,22 @@ function humanReadable(int) {
 
   return formattedHours + ":" + formattedMinutes + ":" + formattedSeconds;
 }
+
+// Directions Reduction
+
+function dirReduc(arr){
+  const NS = 'NORTH SOUTH'
+  const SN = 'SOUTH NORTH'
+  const EW = 'EAST WEST'
+  const WE = 'WEST EAST'
+  
+  let counter = 0
+  
+  for(let i = 1; i < arr.length; i++) {
+    if(arr[i - 1] + ' ' + arr[i] === NS || arr[i - 1] + ' ' + arr[i] === SN || arr[i - 1] + ' ' + arr[i] === EW || arr[i - 1] + ' ' + arr[i] === WE) {
+      counter += 1
+      arr.splice(i - 1, 2)
+    }
+  }
+  
+  return counter > 0 ? dirReduc(arr) : arr;
