@@ -68,19 +68,69 @@ function humanReadable(int) {
 
 // Directions Reduction
 
-function dirReduc(arr){
-  const NS = 'NORTH SOUTH'
-  const SN = 'SOUTH NORTH'
-  const EW = 'EAST WEST'
-  const WE = 'WEST EAST'
-  
-  let counter = 0
-  
-  for(let i = 1; i < arr.length; i++) {
-    if(arr[i - 1] + ' ' + arr[i] === NS || arr[i - 1] + ' ' + arr[i] === SN || arr[i - 1] + ' ' + arr[i] === EW || arr[i - 1] + ' ' + arr[i] === WE) {
-      counter += 1
-      arr.splice(i - 1, 2)
+function dirReduc(arr) {
+  const NS = "NORTH SOUTH";
+  const SN = "SOUTH NORTH";
+  const EW = "EAST WEST";
+  const WE = "WEST EAST";
+
+  let counter = 0;
+
+  for (let i = 1; i < arr.length; i++) {
+    if (
+      arr[i - 1] + " " + arr[i] === NS ||
+      arr[i - 1] + " " + arr[i] === SN ||
+      arr[i - 1] + " " + arr[i] === EW ||
+      arr[i - 1] + " " + arr[i] === WE
+    ) {
+      counter += 1;
+      arr.splice(i - 1, 2);
     }
   }
-  
+
   return counter > 0 ? dirReduc(arr) : arr;
+}
+
+// RGB To Hex Conversion
+
+function rgb(r, g, b) {
+  const rgb = [r, g, b];
+
+  const hexCode = {
+    0: 0,
+    1: 1,
+    2: 2,
+    3: 3,
+    4: 4,
+    5: 5,
+    6: 6,
+    7: 7,
+    8: 8,
+    9: 9,
+    10: "A",
+    11: "B",
+    12: "C",
+    13: "D",
+    14: "E",
+    15: "F",
+  };
+
+  const converter = (number) => {
+    if (number <= 0) {
+      return "00";
+    } else if (number > 255) {
+      return "FF";
+    } else {
+      const firstValue = Math.floor(number / 16);
+      const decimal = number / 16 - firstValue;
+      const secondValue = decimal * 16;
+
+      let firstHex = hexCode[firstValue];
+      let secondHex = hexCode[secondValue];
+
+      return firstHex.toString() + secondHex.toString();
+    }
+  };
+
+  return rgb.map((number) => converter(number)).join("");
+}
