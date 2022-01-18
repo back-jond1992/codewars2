@@ -134,3 +134,104 @@ function rgb(r, g, b) {
 
   return rgb.map((number) => converter(number)).join("");
 }
+
+// Calculating with Functions
+
+function zero(num) {
+  if (Array.isArray(num)) {
+    num.push(0);
+    return Math.floor(eval(num[2] + num[1] + num[0]));
+  } else {
+    return [0];
+  }
+}
+
+function one(num) {
+  if (Array.isArray(num)) {
+    num.push(1);
+    return Math.floor(eval(num[2] + num[1] + num[0]));
+  } else {
+    return [1];
+  }
+}
+function two(num) {
+  if (Array.isArray(num)) {
+    num.push(2);
+    return Math.floor(eval(num[2] + num[1] + num[0]));
+  } else {
+    return [2];
+  }
+}
+function three(num) {
+  if (Array.isArray(num)) {
+    num.push(3);
+    return Math.floor(eval(num[2] + num[1] + num[0]));
+  } else {
+    return [3];
+  }
+}
+function four(num) {
+  if (Array.isArray(num)) {
+    num.push(4);
+    return Math.floor(eval(num[2] + num[1] + num[0]));
+  } else {
+    return [4];
+  }
+}
+function five(num) {
+  if (Array.isArray(num)) {
+    num.push("5");
+    return Math.floor(eval(num[2] + num[1] + num[0]));
+  } else {
+    return ["5"];
+  }
+}
+function six(num) {
+  if (Array.isArray(num)) {
+    num.push(6);
+    return Math.floor(eval(num[2] + num[1] + num[0]));
+  } else {
+    return [6];
+  }
+}
+function seven(num) {
+  if (Array.isArray(num)) {
+    num.push("7");
+    return Math.floor(eval(num[2] + num[1] + num[0]));
+  } else {
+    return ["7"];
+  }
+}
+function eight(num) {
+  if (Array.isArray(num)) {
+    num.push(8);
+    return Math.floor(eval(num[2] + num[1] + num[0]));
+  } else {
+    return [8];
+  }
+}
+function nine(num) {
+  if (Array.isArray(num)) {
+    num.push(9);
+    return Math.floor(eval(num[2] + num[1] + num[0]));
+  } else {
+    return [9];
+  }
+}
+
+function plus(num) {
+  num.push("+");
+  return num;
+}
+function minus(num) {
+  num.push("-");
+  return num;
+}
+function times(num) {
+  num.push("*");
+  return num;
+}
+function dividedBy(num) {
+  num.push("/");
+  return num;
+}
