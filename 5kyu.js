@@ -307,3 +307,23 @@ function rot13(message) {
 
   return decodedMessage;
 }
+
+// Maximum subarray sum
+
+var maxSequence = function (arr) {
+  if (arr.length === 0) return 0;
+
+  if (arr.every((number) => number > 0)) {
+    return arr.reduce((a, b) => a + b);
+  }
+
+  let currentMax = 0;
+  let maxSoFar = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    currentMax = Math.max(0, currentMax + arr[i]);
+    maxSoFar = Math.max(currentMax, maxSoFar);
+  }
+
+  return maxSoFar;
+};
