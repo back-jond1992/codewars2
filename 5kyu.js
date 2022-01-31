@@ -327,3 +327,25 @@ var maxSequence = function (arr) {
 
   return maxSoFar;
 };
+
+// Product of consecutive Fib numbers
+
+function productFib(prod) {
+  const fibCalc = (array, target) => {
+    let fibSequence = array;
+    let nextFibNumber = fibSequence[fibSequence.length - 1] + fibSequence[fibSequence.length - 2];
+    fibSequence.push(nextFibNumber);
+
+    if (fibSequence[fibSequence.length - 2] * fibSequence[fibSequence.length - 1] === target) {
+      return [fibSequence[fibSequence.length - 2], fibSequence[fibSequence.length - 1], true];
+    } else if (fibSequence[fibSequence.length - 2] * fibSequence[fibSequence.length - 1] > target) {
+      return [fibSequence[fibSequence.length - 2], fibSequence[fibSequence.length - 1], false];
+    } else {
+      return fibCalc([fibSequence[fibSequence.length - 2], fibSequence[fibSequence.length - 1]], target);
+    }
+  };
+
+  let result = fibCalc([0, 1], prod);
+
+  return result;
+}
