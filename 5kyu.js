@@ -349,3 +349,28 @@ function productFib(prod) {
 
   return result;
 }
+
+// Weight for weight
+
+function orderWeight(string) {
+  const weightArray = string.split(" ");
+
+  const sumFunc = (num) => {
+    return num
+      .split("")
+      .map(Number)
+      .reduce((a, b) => a + b);
+  };
+
+  const sortedBySummedNumArray = weightArray
+    .sort((a, b) => {
+      if (sumFunc(a) === sumFunc(b)) {
+        return a.localeCompare(b);
+      } else {
+        return sumFunc(a) - sumFunc(b);
+      }
+    })
+    .join(" ");
+
+  return sortedBySummedNumArray;
+}
