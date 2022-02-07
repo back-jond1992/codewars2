@@ -374,3 +374,24 @@ function orderWeight(string) {
 
   return sortedBySummedNumArray;
 }
+
+// Pete, the baker
+
+function cakes(recipe, available) {
+  if (Object.keys(recipe).length > Object.keys(available).length) {
+    return 0;
+  }
+
+  const cake = available;
+
+  const recipeArray = Object.entries(recipe);
+
+  for (let i = 0; i < recipeArray.length; i++) {
+    if (cake[recipeArray[i][0]]) {
+      let numberOfCakes = cake[recipeArray[i][0]] / [recipeArray[i][1]];
+      cake[recipeArray[i]] = Math.floor(numberOfCakes);
+    }
+  }
+
+  return Math.min(...Object.values(cake));
+}
