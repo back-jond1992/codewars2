@@ -395,3 +395,23 @@ function cakes(recipe, available) {
 
   return Math.min(...Object.values(cake));
 }
+
+// First non-repeating character
+
+function firstNonRepeatingLetter(s) {
+  if (!s) return "";
+
+  const charArray = s.split("");
+
+  const letter = charArray[0];
+
+  for (let i = 1; i < charArray.length; i++) {
+    if (charArray[i].toLowerCase() === letter.toLowerCase()) {
+      charArray.splice(0, 1);
+      charArray.splice(i - 1, 1);
+      return firstNonRepeatingLetter(charArray.join(""));
+    }
+  }
+
+  return letter;
+}
